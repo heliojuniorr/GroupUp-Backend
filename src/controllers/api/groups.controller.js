@@ -7,7 +7,8 @@ router.get('/', listGroups)
 router.put('/:_id', updateGroup)
 router.get('/:_id', getGroupById)
 router.delete('/:_id', deleteGroup)
-
+router.put('/members/:_id', addGroupMembers)
+router.delete('/members/:_id', removeGroupMember)
 module.exports = router
 
 function createGroup(request, response) {
@@ -35,5 +36,17 @@ async function getGroupById(request, response) {
 function deleteGroup(request, response) {
     let output = false
     output = groupsService.delete(request)
+    return output ? response.status(201).send() : response.status(500).send()
+}
+
+function addGroupMembers(request, response) {
+    let output
+    output = groupsService.addMember(request)
+    return output ? response.status(201).send() : response.status(500).send()
+}
+ 
+function removeGroupMember(request, response) {
+    let output
+    output = groupsService.removeMember(request)
     return output ? response.status(201).send() : response.status(500).send()
 }
