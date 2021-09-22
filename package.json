@@ -1,0 +1,29 @@
+{
+  "name": "GroupUp-Backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heliojuniorr/GroupUp-Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heliojuniorr/GroupUp-Backend/issues"
+  },
+  "homepage": "https://github.com/heliojuniorr/GroupUp-Backend#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "firebase": "^9.0.2",
+    "firebase-admin": "^9.11.1"
+  }
+}
