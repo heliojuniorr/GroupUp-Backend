@@ -8,6 +8,7 @@ service.getById = getById;
 service.delete = _delete;
 service.addMember = addMembers;
 service.removeMember = removeMember;
+
 module.exports = service;
 
 function create(param) {
@@ -95,12 +96,12 @@ async function addMembers(param) {
     output = groupRef.update({
         "members": [...members, ...newMembers]       
     })
- 
+
     output ? console.log('New members added ' + newMembers) : console.log('It was not possible to add members')
- 
+
     return output
 }
- 
+
 async function removeMember(param) {
     const groupId = param.params._id    
     const {members: toRemoveMember} = param.body
@@ -109,7 +110,7 @@ async function removeMember(param) {
     let newMembers = []
     let oldMembers = [...members]
     let deleteMember = toRemoveMember
- 
+
     oldMembers.forEach(member => {
         deleteMember !== member && newMembers.push(member)        
     });
@@ -118,8 +119,8 @@ async function removeMember(param) {
     output = groupRef.update({
         "members": newMembers       
     })
- 
+
     output ? console.log('Members removed ' + deleteMember) : console.log('It was not possible to remove members')
- 
+
     return output
 }

@@ -9,6 +9,7 @@ router.get('/:_id', getGroupById)
 router.delete('/:_id', deleteGroup)
 router.put('/members/:_id', addGroupMembers)
 router.delete('/members/:_id', removeGroupMember)
+
 module.exports = router
 
 function createGroup(request, response) {
@@ -44,7 +45,7 @@ function addGroupMembers(request, response) {
     output = groupsService.addMember(request)
     return output ? response.status(201).send() : response.status(500).send()
 }
- 
+
 function removeGroupMember(request, response) {
     let output
     output = groupsService.removeMember(request)
