@@ -21,6 +21,11 @@ function create(param) {
         address,
         limit,
         cost,
+        spendingList: [
+            {food},
+            {transport},
+            {entertainment}
+        ],
         members: [authorId]
     }).key
 
@@ -86,4 +91,16 @@ function _delete(param) {
     }) 
 
     return output
+}
+
+function filterEventsByLimit(eventList, limit){
+    return eventList.filter(element => {
+        return element.limit <= limit;
+    });
+}
+
+function filterEventsByCost(eventList, cost){
+    return eventList.filter(element => {
+        return element.cost <= cost;
+    });
 }
